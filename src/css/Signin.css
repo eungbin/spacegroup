@@ -1,0 +1,31 @@
+.header-signin {
+    margin-top: 100px;
+}
+
+.container-signin {
+    width: 15%;
+    display: inline-block;
+    background-color: #E6E6E6;
+    padding: 10px 40px 40px 40px;
+    border-radius: 20px / 20px;
+}
+
+.title-signin {
+    margin-bottom: 50px;
+}
+
+.container-signin-main {
+    text-align: left;
+}
+
+.input-signin {
+    width: 100%;
+}
+
+#input-signin-password {
+    margin-bottom: 30px;
+}
+
+.button-signin-submit {
+    width: 100%;
+}

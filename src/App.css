@@ -1,0 +1,45 @@
+.App {
+  text-align: center;
+}
+
+body {
+  font-family: 'nanumsquare';
+}
+
+.black-nav {
+  position: fixed;
+  background: black;
+  width: 100%;
+  float: left;
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.nav-inner-right {
+  margin-left: 10px;
+  margin-right: 10px;
+  float: right;
+}
+
+.nav-inner-left {
+  margin-left: 10px;
+  margin-right: 10px;
+  float: left;
+}
+
+.nav-inner-title {
+  font-size: 20px;
+  margin-left: 30px;
+  color: white;
+}
+
+.screen {
+  padding-top: 50px;
+}
+
+.nav-inner-menu {
+  color: white;
+}

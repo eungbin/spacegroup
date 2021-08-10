@@ -1,0 +1,39 @@
+.header-login {
+    margin-top: 100px;
+}
+
+.container-login {
+    width: 15%;
+    display: inline-block;
+    background-color: #E6E6E6;
+    padding: 10px 40px 40px 40px;
+    border-radius: 20px / 20px;
+}
+
+.title-login {
+    margin-bottom: 50px;
+}
+
+.container-login-main {
+    text-align: left;
+}
+
+.input-login {
+    width: 100%;
+}
+
+#input-gender {
+    margin-bottom: 30px;
+}
+
+.button-submit {
+    width: 100%;
+}
+
+#input-password {
+    margin-bottom: 0px;
+}
+
+h4 {
+    margin-bottom: 10px;
+}
