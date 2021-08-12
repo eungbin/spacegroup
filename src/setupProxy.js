@@ -4,8 +4,7 @@ module.exports = (app) => {
     app.use(
         '/api',
         createProxyMiddleware({
-            //target: 'http://localhost:4000',
-            target: 'https://funcoding-shop-back.herokuapp.com/',
+            target: 'http://localhost:4000',
             changeOrigin: true,
         })
     );

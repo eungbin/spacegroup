@@ -14,11 +14,13 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <div className="black-nav">
-          {sessionStorage.getItem("id") === null && <Link to="/signup"><div className="nav-inner-right nav-inner-menu">Sign-up</div></Link> }
-          {sessionStorage.getItem("id") !== null && <Link to="/signout"><div className="nav-inner-right nav-inner-menu">Log-out</div></Link> }
-          {sessionStorage.getItem("id") === null && <Link to="/signin"><div className="nav-inner-right nav-inner-menu">Log-in</div> </Link>}
-          {sessionStorage.getItem("id") === "admin" && <Link to="/manageuser"><div className="nav-inner-right nav-inner-menu">Management User</div> </Link>}
-          {sessionStorage.getItem("id") !== null && <Link to="/mypage"><div className="nav-inner-right nav-inner-menu">My Page</div> </Link>}
+          <div className="nav-outer-menu">
+            {sessionStorage.getItem("id") === null && <Link to="/signup"><div className="nav-inner-right nav-inner-menu">Sign-up</div></Link> }
+            {sessionStorage.getItem("id") !== null && <Link to="/signout"><div className="nav-inner-right nav-inner-menu">Log-out</div></Link> }
+            {sessionStorage.getItem("id") === null && <Link to="/signin"><div className="nav-inner-right nav-inner-menu">Log-in</div> </Link>}
+            {sessionStorage.getItem("id") === "admin" && <Link to="/manageuser"><div className="nav-inner-right nav-inner-menu">Management User</div> </Link>}
+            {sessionStorage.getItem("id") !== null && <Link to="/mypage"><div className="nav-inner-right nav-inner-menu">My Page</div> </Link>}
+          </div>
           <Link to="/"><div className="nav-inner-left nav-inner-title">Shopping Mall</div></Link>
         </div>
 
