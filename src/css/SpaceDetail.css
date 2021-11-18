@@ -1,0 +1,37 @@
+.detailImage {
+    height: 300px;
+}
+
+.detailWrapper {
+    width: 500px;
+    margin: 0 auto;
+    margin-left: 200px;
+    float: left;
+    text-align: left;
+}
+
+img[src$=".gif"], img[src$=".png"] {
+    image-rendering: -moz-crisp-edges; /* Firefox */
+    image-rendering: -o-crisp-edges; /* Opera */
+    image-rendering: -webkit-optimize-contrast;/* Webkit (non-standard naming) */
+    image-rendering: crisp-edges;
+    -ms-interpolation-mode: nearest-neighbor; /* IE (non-standard property) */
+}
+
+.detailLayout {
+
+}
+
+.buyWrapper {
+    margin-top: 100px;
+    margin-right: 200px;
+    float: right;
+}
+
+.spaceTags {
+    color: #696969;
+}
+
+.buySpaceName {
+    
+}

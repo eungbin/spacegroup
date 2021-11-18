@@ -2,12 +2,40 @@
     margin-top: 100px;
 }
 
-.container-signin {
-    width: 15%;
+.container-main {
     display: inline-block;
-    background-color: #E6E6E6;
+}
+
+.container-signin {
+    width: 500px;
+    /* background-color: #E6E6E6; */
     padding: 10px 40px 40px 40px;
     border-radius: 20px / 20px;
+    
+}
+
+.container-signin-kakao {
+    border: 2px solid black;
+    padding-top: 20px;
+    padding-left: 130px;
+    padding-bottom: 20px;
+    border-radius: 20px / 20px;
+}
+
+.innerContainer {
+    font-size: 23px;
+    display: flex;
+    align-items: center;
+}
+
+.kakaoLogo {
+    width: 25px;
+    height: 25px;
+    margin-right: 20px;
+}
+
+h3 {
+    padding-top: 20px;
 }
 
 .title-signin {
@@ -16,16 +44,40 @@
 
 .container-signin-main {
     text-align: left;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-radius: 20px / 20px;
 }
 
 .input-signin {
-    width: 100%;
+    width: 480px;
+    height: 40px;
+    border-radius: 5px / 5px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    padding-left: 10px;
+    border: 1px solid #c0c0c0;
 }
 
 #input-signin-password {
-    margin-bottom: 30px;
+    margin-bottom: 25px;
 }
 
 .button-signin-submit {
-    width: 100%;
+    width: 500px;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:visited {color: black;}
+
+.container-signup {
+    color: #a9a9a9;
+}
+
+.btn-signup {
+    color: black;
+    text-decoration: underline;
 }

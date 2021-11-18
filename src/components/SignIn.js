@@ -1,4 +1,4 @@
-import React from 'react';
+import {React} from 'react';
 import '../css/Signin.css';
 import Button from '@material-ui/core/Button';
 import axios from 'axios';
@@ -19,10 +19,10 @@ function SignIn() {
             }
         })
         .then(res => {
-            console.log(res);
             if(res.data.status) {
                 console.log("로그인 성공");
                 sessionStorage.setItem("id", id);
+                sessionStorage.setItem("userSeq", res.data.userSeq);
                 history.push("/");
                 history.go(0);
             } else {
@@ -34,14 +34,24 @@ function SignIn() {
 
     return(
         <div>
-            <h1 className="header-signin">Log-In</h1>
-            <div className="container-signin">
-                <div className="container-signin-main">
-                    <h4>ID</h4>
-                    <input className="input-signin" id="input-id" type="text" name="id" placeholder="Enter id"></input>
-                    <h4>Password</h4>
-                    <input className="input-signin" id="input-signin-password" type="password" name="password" placeholder="Enter password"></input>
-                    <Button variant="contained" className="button-signin-submit" onClick={onLoginSubmit}>Submit</Button>
+            <h1 className="header-signin">로그인</h1>
+            <div className="container-main">
+                <div className="container-signin">
+                    <a href="signInKakao">
+                        <div className="container-signin-kakao">
+                            <div className="innerContainer"><img src="imgs/kakao_logo.png" className="kakaoLogo" />카카오로 로그인하기</div>
+                        </div>
+                    </a>
+
+                    <h3>또는</h3>
+
+                    <div className="container-signin-main">
+                        <input className="input-signin" id="input-id" type="text" name="id" placeholder="아이디"></input>
+                        <input className="input-signin" id="input-signin-password" type="password" name="password" placeholder="비밀번호"></input>
+                        <Button variant="contained" className="button-signin-submit" onClick={onLoginSubmit}>아이디로 로그인하기</Button>
+                    </div>
+
+                    <div className="container-signup">아직 스페이스그룹 회원이 아니신가요? <a href="signup" className="btn-signup">회원가입</a></div>
                 </div>
             </div>
         </div>

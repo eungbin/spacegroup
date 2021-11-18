@@ -9,20 +9,12 @@ function SignUp() {
 
     const onSignUpSubmit = async() => {
         let id = document.getElementById("input-id").value;
-        let pw = document.getElementById("input-password").value;
-        let pw_check = document.getElementById("input-password-check").value;
-        let name = document.getElementById("input-name").value;
-        let phone = document.getElementById("input-phone").value;
-        let address = document.getElementById("input-address").value;
-        let gender = document.getElementById("input-gender").value;
+        let pw = document.getElementById("input-signup-password").value;
+        let pwCheck = document.getElementById("input-signup-password-check").value;
+        let nickName = document.getElementById("input-nickname").value;
 
-        if(pw !== pw_check) {
-            alert("비밀번호와 비밀번호확인란 다름");
-            return;
-        }
-
-        if(gender !== "M" && gender !== "F") {
-            alert("성별란은 M(남자)혹은 F(여자)만 입력 가능합니다.");
+        if(pw !== pwCheck) {
+            document.getElementById("errorCheck").innerHTML = "비밀번호와 비밀번호 확인란이 다릅니다.";
             return;
         }
 
@@ -30,21 +22,18 @@ function SignUp() {
             params: {
                 id: id,
                 pw: pw,
-                name: name,
-                phone: phone,
-                address: address,
-                gender: gender
+                nickName: nickName,
             }
         })
         .then(res => {
-            if(res.data.status) {
+            if(res.data.status == true) {
                 alert("회원가입 성공");
                 history.push("/");
                 history.go(0);
+            } else if(res.data.status == false) {
+                document.getElementById("errorCheck").innerHTML = "아이디가 중복됩니다.";
             } else {
-                if(res.data.err.code === "ER_DUP_ENTRY") {
-                    alert("아이디 중복");
-                }
+                alert(res.data.err);
             }
         })
         .catch()
@@ -52,24 +41,17 @@ function SignUp() {
 
     return(
         <div>
-            <h1 className="header-login">Sign-up</h1>
-            <div className="container-login">
-                <div className="container-login-main">
-                    <h4>ID</h4>
-                    <input className="input-login" id="input-id" type="text" name="id" placeholder="Enter id"></input>
-                    <h4>Password</h4>
-                    <input className="input-login" id="input-password" type="password" name="pw" placeholder="Enter password"></input>
-                    <h4>Password Check</h4>
-                    <input className="input-login" id="input-password-check" type="password" name="pw-check" placeholder="Check the password"></input>
-                    <h4>Name</h4>
-                    <input className="input-login" id="input-name" type="text" name="name" placeholder="Enter name"></input>
-                    <h4>Phone</h4>
-                    <input className="input-login" id="input-phone" type="text" name="phone" placeholder="Enter phone-number"></input>
-                    <h4>Address</h4>
-                    <input className="input-login" id="input-address" type="text" name="address" placeholder="Enter address"></input>
-                    <h4>Gender</h4>
-                    <input className="input-login" id="input-gender" maxLength="1" type="text" name="gender" placeholder="Enter gender (M of F)"></input>
-                    <Button variant="contained" className="button-submit" onClick={onSignUpSubmit}>Submit</Button>
+            <h1 className="header-signup">회원가입</h1>
+            <div className="container-main">
+                <div className="container-signup">
+                    <div className="container-signup-main">
+                        <input className="input-signup" id="input-id" type="text" name="id" placeholder="아이디"></input>
+                        <input className="input-signup" id="input-signup-password" type="password" name="password" placeholder="비밀번호"></input>
+                        <input className="input-signup" id="input-signup-password-check" type="password" name="password-check" placeholder="비밀번호 확인"></input>
+                        <input className="input-signup" id="input-nickname" type="text" name="nickname" placeholder="닉네임"></input>
+                        <Button variant="contained" className="button-signup-submit" onClick={onSignUpSubmit}>회원가입</Button>
+                        <p id="errorCheck"></p>
+                    </div>
                 </div>
             </div>
         </div>

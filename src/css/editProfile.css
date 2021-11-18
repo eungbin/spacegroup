@@ -1,0 +1,32 @@
+.input-nickName {
+    width: 480px;
+    height: 40px;
+    border-radius: 5px / 5px;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    margin-left: 20px;
+    margin-right: 20px;
+    font-size: 16px;
+    padding-left: 10px;
+    border: 1px solid #c0c0c0;
+}
+
+.changeNickName {
+    font-size: 24px;
+}
+
+.button-change-submit {
+    margin-left: 20px;
+    width: 100px;
+}
+
+.email {
+    font-size: 24px;
+    margin-bottom: 30px;
+    margin-left: -640px;
+}
+
+.phone {
+    font-size: 24px;
+    margin-left: -640px;
+}

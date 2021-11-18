@@ -1,39 +1,63 @@
-.header-login {
+.header-signup {
     margin-top: 100px;
 }
 
-.container-login {
-    width: 15%;
+.container-main {
     display: inline-block;
-    background-color: #E6E6E6;
-    padding: 10px 40px 40px 40px;
-    border-radius: 20px / 20px;
 }
 
-.title-login {
+.container-signup {
+    width: 500px;
+    /* background-color: #E6E6E6; */
+    padding: 10px 40px 40px 40px;
+    border-radius: 20px / 20px;
+    
+}
+
+.title-signup {
     margin-bottom: 50px;
 }
 
-.container-login-main {
+.container-signup-main {
     text-align: left;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-radius: 20px / 20px;
 }
 
-.input-login {
-    width: 100%;
+.input-signup {
+    width: 480px;
+    height: 40px;
+    border-radius: 5px / 5px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    padding-left: 10px;
+    border: 1px solid #c0c0c0;
 }
 
-#input-gender {
-    margin-bottom: 30px;
+#input-nickname {
+    margin-bottom: 25px;
 }
 
-.button-submit {
-    width: 100%;
+.button-signup-submit {
+    width: 500px;
 }
 
-#input-password {
-    margin-bottom: 0px;
+a {
+    text-decoration: none;
 }
 
-h4 {
-    margin-bottom: 10px;
+a:visited {color: black;}
+
+.container-signup {
+    color: #a9a9a9;
+}
+
+.btn-signup {
+    color: black;
+    text-decoration: underline;
+}
+
+#errorCheck {
+    color: red;
 }

@@ -1,0 +1,29 @@
+
+ul{list-style:none;}
+
+.box{max-width:520px; margin:0 auto;}
+
+#tab{
+    text-align:center;
+    overflow-x: auto;
+}
+
+#tab .innerBox {
+    float: left;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    width: 25px;
+    height: 30px;
+}
+
+.available {
+    background: yellow;
+}
+
+.notAvailable {
+    background: gray;
+}
+
+.choosed {
+    background-color: blueviolet;
+}

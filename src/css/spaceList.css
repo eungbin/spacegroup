@@ -1,0 +1,59 @@
+.listWrapper {
+    width: 1200px;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+.spaceWrapper {
+    width: 350px;
+    height: 300px;
+    float: left;
+    margin-left: 35px;
+}
+
+.imageWrapper {
+    width: 350px;
+    height: 200px;
+}
+
+.innerImage {
+    width: 350px;
+    height: 200px;
+}
+
+.spaceNameWrapper {
+    font-size: 20px;
+    text-align: left;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.addrTags {
+    width: 175px;
+    float: left;
+    color: #696969;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.spaceAddrWrapper {
+    text-align: left;
+}
+
+.spaceTagsWrapper {
+    text-align: right;
+}
+
+.payPerson {
+    width: 175px;
+    float: left;
+    color: #696969;
+}
+
+.spaceHourPay {
+    text-align: left;
+}
+
+.spaceLimitPerson {
+    text-align: right;
+}
