@@ -1,8 +1,9 @@
 import './../css/Calendar.css';
-import {React, memo, useState, useEffect} from 'react';
+import {React, memo, useState, useEffect, useRef} from 'react';
 import moment from 'moment';
 import axios from 'axios';
-import { MemoizedTimeBar } from './SelectTimeBar';
+// import { MemoizedTimeBar } from './SelectTimeBar';
+import SelectTimeBar from './SelectTimeBar';
 
 const Calendar =(props)=>{
 
@@ -13,6 +14,8 @@ const Calendar =(props)=>{
   const today = getMoment;
   const firstWeek = today.clone().startOf('month').week();
   const lastWeek = today.clone().endOf('month').week() === 1 ? 53 : today.clone().endOf('month').week();
+
+  const refResetBar = useRef({});
 
   useEffect(() => {
     selectReservation(getMoment.format('YYYYMMDD'));
@@ -72,6 +75,7 @@ const Calendar =(props)=>{
         });
         e.target.className = "clicked";
         selectReservation(today.format("YYYYMM") + days);
+        refResetBar.current.reset();
   }
 
   const selectReservation = async (date) => {
@@ -99,7 +103,8 @@ const Calendar =(props)=>{
             </tbody>
           </table>
       </div>
-      <MemoizedTimeBar listReservation={listReservation} clickList={props.clickList} setClickList={props.setClickList}/>
+      {/* <MemoizedTimeBar listReservation={listReservation} clickList={props.clickList} setClickList={props.setClickList}/> */}
+      <SelectTimeBar listReservation={listReservation} clickList={props.clickList} setClickList={props.setClickList} ref={refResetBar} />
     </>
   );
 }

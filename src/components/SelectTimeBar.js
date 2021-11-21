@@ -1,7 +1,7 @@
 import './../css/SelectTimeBar.css';
-import {React, useState, memo} from 'react';
+import {React, useState, memo, forwardRef, useImperativeHandle} from 'react';
 
-const SelectTimeBar =(props)=>{
+const SelectTimeBar = forwardRef((props, ref) => {
     let chooseList = [...props.clickList];
 
     const onChangeTime = (e) => {
@@ -18,13 +18,20 @@ const SelectTimeBar =(props)=>{
         }
     }
 
-    // const resetBox = () => {
-    //     for(let i=0; i<25; i++) {
-    //         if(document.getElementById(String(i)) !== null) {
-    //             document.getElementById(String(i)).className = "innerBox available";
-    //         }
-    //     }
-    // }
+    useImperativeHandle(ref, () => ({
+        reset() {
+            resetBox();
+        }
+    }));
+
+    const resetBox = () => {
+        for(let i=0; i<25; i++) {
+            if(document.getElementById(String(i)) !== null) {
+                document.getElementById(String(i)).className = "innerBox available";
+            }
+        }
+        props.setClickList([]);
+    }
 
     // resetBox();
 
@@ -55,5 +62,6 @@ const SelectTimeBar =(props)=>{
         </div>
     </div>
   );
-}
+});
 export const MemoizedTimeBar = memo(SelectTimeBar);
+export default SelectTimeBar;

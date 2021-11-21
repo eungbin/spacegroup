@@ -1,12 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, history } from 'react';
 import axios from 'axios';
 import '../css/RentalList.css';
 import { DataGrid } from '@material-ui/data-grid';
 import moment from 'moment';
+import { BrowserRouter, Route, Link } from 'react-router-dom';
+import { useHistory } from "react-router-dom";
+import MyPageSide from './MyPageSide';
 
 function RentalList() {
 
     const [rentalList, setRentalList] = useState([]);
+
+    let history = useHistory();
 
     useEffect(() => {
         (async () => {
@@ -25,6 +30,9 @@ function RentalList() {
           field: 'name',
           headerName: 'Name',
           width: 250,
+        //   renderCell: (params) => (
+        //     <Link href={`/spaceDetail/${params.spaceSeq}`}>{params.id}</Link>
+        //   )
         },
         {
           field: 'type',
@@ -51,6 +59,11 @@ function RentalList() {
             headerName: 'Payment',
             width: 200,
         },
+        // {
+        //     field: 'spaceSeq',
+        //     headerName: 'Space Id',
+        //     width: 150,
+        // },
     ];
 
     const rows = [];
@@ -59,21 +72,31 @@ function RentalList() {
         rentalList.map((i, index) => {
             let parseDate = new Date(i.rentalDate);
             let parsed = moment(parseDate).format("YYYY-MM-DD");
-            rows.push({id: i.rentalSeq, name: i.spaceName, type: i.spaceType, start: i.rentalStartTime+":00", end: i.rentalEndTime+":00", date: String(parsed), pay: i.rentalPayment+"원"});
+            rows.push({id: i.rentalSeq, name: i.spaceName, type: i.spaceType, start: i.rentalStartTime+":00", end: i.rentalEndTime+":00", date: String(parsed), pay: i.rentalPayment+"원", spaceSeq: i.spaceSeq});
         })
-    } 
+    }
+
+    const testFunction = (e) => {
+        history.push("/");
+    }
 
     return(
         <div>
-            <h1>대여내역</h1>
-            <div id="grid">
-                <DataGrid
-                    rows={rows}
-                    columns={columns}
-                    pageSize={8}
-                    checkboxSelection
-                    disableSelectionOnClick
-                />
+            <div className="left-menu">
+                <MyPageSide />
+            </div>
+            <div className="inner-body">
+                <h1>대여내역</h1>
+                <div id="grid">
+                    <DataGrid
+                        rows={rows}
+                        columns={columns}
+                        pageSize={8}
+                        checkboxSelection
+                        disableSelectionOnClick
+                        onRowClick={testFunction}
+                    />
+                </div>
             </div>
         </div>
     );

@@ -35,10 +35,10 @@ function BoardList() {
 
     const rows = [];
     
-    if(Array.isArray(boardList) && boardList.length !== 0) {
+    if(boardList.length !== 0) {
         boardList.map((i, index) => {
-            let parseDate = new Date(i.boardDate);
-            let parsed = moment(parseDate).format("YYYY-MM-DD");
+            // let parseDate = new Date(i.boardDate);
+            let parsed = moment(new Date(i.boardDate)).format("YYYY-MM-DD");
             rows.push({id: i.boardSeq, title: i.boardTitle, date: String(parsed)});
         })
     }
