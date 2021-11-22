@@ -52,6 +52,13 @@ function Community() {
         })
     }
 
+    const goBoardDetail = (e) => {
+        history.push({
+            pathname: "/boardDetail",
+            state: {boardSeq: e.row.id}
+        })
+    }
+
     return(
         <div>
             <h1 className="header-community">커뮤니티</h1>
@@ -62,6 +69,7 @@ function Community() {
                     pageSize={8}
                     checkboxSelection
                     disableSelectionOnClick
+                    onRowClick={goBoardDetail}
                 />
             </div>
         </div>

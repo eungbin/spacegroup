@@ -1,5 +1,20 @@
+.left-menu {
+    width: 400px;
+    float: left;
+    margin-left: 50px;
+    border-right: 1px solid #c0c0c0;
+}
+
+.left-menu-inner {
+    color: #696969;
+    font-size: 20px;
+    margin-right: -100px;
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
+
 #grid {
     margin: 0 auto;
-    width: 800px;
+    width: 1400px;
     margin-top: 40px;
 }

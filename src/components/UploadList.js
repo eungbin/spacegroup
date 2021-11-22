@@ -3,10 +3,14 @@ import axios from 'axios';
 import '../css/UploadList.css';
 import { DataGrid } from '@material-ui/data-grid';
 import moment from 'moment';
+import MypageSide from './MyPageSide';
+import { useHistory } from "react-router-dom";
 
 function UploadList() {
 
     const [uploadList, setUploadList] = useState([]);
+
+    let history = useHistory();
 
     useEffect(() => {
         (async () => {
@@ -53,17 +57,30 @@ function UploadList() {
         })
     }
 
+    const goSpaceDetail = (e) => {
+        history.push({
+            pathname: "/spaceDetail",
+            state: {spaceSeq: e.row.id}
+        })
+    }
+
     return(
         <div>
-            <h1>등록내역</h1>
-            <div id="grid">
-                <DataGrid
-                    rows={rows}
-                    columns={columns}
-                    pageSize={8}
-                    checkboxSelection
-                    disableSelectionOnClick
-                />
+            <div className="left-menu">
+                <MypageSide />
+            </div>
+            <div className="inner-body">
+                <h1>등록내역</h1>
+                <div id="grid">
+                    <DataGrid
+                        rows={rows}
+                        columns={columns}
+                        pageSize={8}
+                        checkboxSelection
+                        disableSelectionOnClick
+                        onRowClick={goSpaceDetail}
+                    />
+                </div>
             </div>
         </div>
     );

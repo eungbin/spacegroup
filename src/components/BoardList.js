@@ -3,10 +3,14 @@ import axios from 'axios';
 import '../css/BoardList.css';
 import { DataGrid } from '@material-ui/data-grid';
 import moment from 'moment';
+import MypageSide from './MyPageSide';
+import { useHistory } from "react-router-dom";
 
 function BoardList() {
 
     const [boardList, setBoardList] = useState([]);
+
+    let history = useHistory();
 
     useEffect(() => {
         (async () => {
@@ -43,17 +47,30 @@ function BoardList() {
         })
     }
 
+    const goBoardDetail = (e) => {
+        history.push({
+            pathname: "/boardDetail",
+            state: {boardSeq: e.row.id}
+        })
+    }
+
     return(
         <div>
-            <h1>내가 쓴 글</h1>
-            <div id="grid">
-                <DataGrid
-                    rows={rows}
-                    columns={columns}
-                    pageSize={8}
-                    checkboxSelection
-                    disableSelectionOnClick
-                />
+            <div className="left-menu">
+                <MypageSide />
+            </div>
+            <div className="inner-body">
+                <h1>내가 쓴 글</h1>
+                <div id="grid">
+                    <DataGrid
+                        rows={rows}
+                        columns={columns}
+                        pageSize={8}
+                        checkboxSelection
+                        disableSelectionOnClick
+                        onRowClick={goBoardDetail}
+                    />
+                </div>
             </div>
         </div>
     );

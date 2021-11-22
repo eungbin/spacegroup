@@ -76,8 +76,11 @@ function RentalList() {
         })
     }
 
-    const testFunction = (e) => {
-        history.push("/");
+    const goSpaceDetail = (e) => {
+        history.push({
+            pathname: "/spaceDetail",
+            state: {spaceSeq: e.row.spaceSeq}
+        })
     }
 
     return(
@@ -94,7 +97,7 @@ function RentalList() {
                         pageSize={8}
                         checkboxSelection
                         disableSelectionOnClick
-                        onRowClick={testFunction}
+                        onRowClick={goSpaceDetail}
                     />
                 </div>
             </div>

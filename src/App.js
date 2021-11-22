@@ -4,7 +4,6 @@ import Signin from './components/SignIn';
 import Signup from './components/SignUp';
 import Main from './components/Main';
 import ManagementUser from './components/ManagementUser';
-import Mypage from './components/Mypage';
 import Signout from './components/SignOut';
 import Rental from './components/Rental';
 import Upload from './components/Upload';
@@ -15,6 +14,8 @@ import editProfile from './components/EditProfile';
 import RentalList from './components/RentalList';
 import UploadList from './components/UploadList';
 import BoardList from './components/BoardList';
+import BoardDetail from './components/BoardDetail';
+import BoardUpdate from './components/BoardUpdate';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
 
 function App() {
@@ -53,6 +54,8 @@ function App() {
           <Route path="/rentalList" component={RentalList} />
           <Route path="/uploadList" component={UploadList} />
           <Route path="/boardList" component={BoardList} />
+          <Route path="/boardDetail" component={BoardDetail} />
+          <Route path="/boardUpdate" component={BoardUpdate} />
         </div>
       </BrowserRouter>
     </div>
