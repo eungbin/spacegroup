@@ -72,7 +72,27 @@ function Upload() {
                             <option value="dog">컨퍼런스</option><option value="dog">공연장</option><option value="dog">독립오피스</option>
                             <option value="dog">코워킹오피스</option><option value="dog">비상주서비스</option><option value="dog">원데이오피스</option>
                         </select>
-                        <input className="input-upload" id="input-spaceAddress" type="text" name="spaceAddress" placeholder="주소"></input>
+                        <select className="spaceType" id="spaceAddress" name="spaceAddress">
+                            <option value="">지역을 선택해주세요.</option>
+                            <option value="SE">서울</option>
+                            <option value="BS">부산</option>
+                            <option value="IC">인천</option>
+                            <option value="DG">대구</option>
+                            <option value="DJ">대전</option>
+                            <option value="GJ">광주</option>
+                            <option value="GG">경기</option>
+                            <option value="US">울산</option>
+                            <option value="GN">경남</option>
+                            <option value="GB">경북</option>
+                            <option value="CB">충북</option>
+                            <option value="CN">충남</option>
+                            <option value="JN">전남</option>
+                            <option value="JB">전북</option>
+                            <option value="JJ">제주</option>
+                            <option value="SJ">세종</option>
+                            <option value="GW">강원</option>
+                        </select>
+                        <input className="input-upload" id="input-spaceAddress" type="text" name="spaceAddress" placeholder="상세주소"></input>
                         <input className="input-upload" id="input-spaceTags" type="text" name="spaceTags" placeholder="태그"></input>
                         <input className="input-upload" id="input-spaceLimitPerson" type="number" name="spaceLimitPerson" placeholder="최대수용인원"></input>
                         <input className="input-upload" id="input-perHourPay" type="number" name="perHourPay" placeholder="시간당 요금"></input>

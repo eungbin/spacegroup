@@ -16,6 +16,7 @@ import UploadList from './components/UploadList';
 import BoardList from './components/BoardList';
 import BoardDetail from './components/BoardDetail';
 import BoardUpdate from './components/BoardUpdate';
+import Chart from './components/Chart';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
         <div className="black-nav">
           <div className="nav-outer-menu">
             {sessionStorage.getItem("id") === "admin" && <Link to="/manageuser"><div className="nav-inner-right nav-inner-menu">관리</div> </Link>}
+            <Link to="/chart"><div className="nav-inner-right nav-inner-menu">통계</div> </Link>
             <Link to="/community"><div className="nav-inner-right nav-inner-menu">커뮤니티</div> </Link>
             <Link to="/upload"><div className="nav-inner-right nav-inner-menu">공간등록</div> </Link>
             <Link to="/rental"><div className="nav-inner-right nav-inner-menu">공간대여</div> </Link>
@@ -56,6 +58,7 @@ function App() {
           <Route path="/boardList" component={BoardList} />
           <Route path="/boardDetail" component={BoardDetail} />
           <Route path="/boardUpdate" component={BoardUpdate} />
+          <Route path="/chart" component={Chart} />
         </div>
       </BrowserRouter>
     </div>
