@@ -3,10 +3,12 @@ import axios from 'axios';
 import '../css/Community.css';
 import { DataGrid } from '@material-ui/data-grid';
 import moment from 'moment';
+import { useHistory } from "react-router-dom";
 
 function Community() {
 
     const [boardList, setBoardList] = useState([]);
+    let history = useHistory();
 
     useEffect(() => {
         (async () => {

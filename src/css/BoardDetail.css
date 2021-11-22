@@ -9,3 +9,25 @@ h1 {
 .buttonUpdate {
     margin-right: 16px;
 }
+
+.buttonReply {
+    height: 80px;
+}
+
+.replyWriter {
+    text-align: left;
+    font-weight: 700;
+}
+
+.replyInner {
+    text-align: left;
+}
+
+.replyDate {
+    text-align: left;
+}
+
+.replyDelete {
+    text-align: left;
+    color: #696969;
+}
