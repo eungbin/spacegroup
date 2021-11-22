@@ -17,6 +17,7 @@ function Upload() {
         let spaceFacility = document.getElementById("textarea-spaceFacility").value;
         let spaceNotice = document.getElementById("textarea-spaceNotice").value;
         let uploadedFile = document.getElementById('images').files;
+        let spaceAddressSummary = document.getElementById("spaceAddressSummary").value;
 
         if(uploadedFile.length !== 3) {
             console.log("파일 3개 업로드해");
@@ -38,6 +39,7 @@ function Upload() {
                 spaceName: spaceName,
                 spaceType: spaceType,
                 spaceAddress: spaceAddress,
+                spaceAddressSummary: spaceAddressSummary,
                 spaceTags: spaceTags,
                 spaceInfo: spaceInfo,
                 spaceFacility: spaceFacility,
@@ -72,7 +74,7 @@ function Upload() {
                             <option value="dog">컨퍼런스</option><option value="dog">공연장</option><option value="dog">독립오피스</option>
                             <option value="dog">코워킹오피스</option><option value="dog">비상주서비스</option><option value="dog">원데이오피스</option>
                         </select>
-                        <select className="spaceType" id="spaceAddress" name="spaceAddress">
+                        <select className="spaceType" id="spaceAddressSummary" name="spaceAddressSummary">
                             <option value="">지역을 선택해주세요.</option>
                             <option value="SE">서울</option>
                             <option value="BS">부산</option>

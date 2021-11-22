@@ -27,20 +27,6 @@ function SpaceDetail(props) {
         })()
     }, []);
 
-    const increaseCount = () => {
-        if(personCount < space.spaceLimitPerson) {
-            document.getElementById("personCount").value = personCount + 1;
-            setPersonCount(personCount+1);
-        }
-    }
-
-    const decreaseCount = () => {
-        if(personCount > 1) {
-            document.getElementById("personCount").value = personCount - 1;
-            setPersonCount(personCount-1);
-        }
-    }
-
     return(
         <div className="detailLayout">
             {space === null ? <h1>Loading...</h1> : 
