@@ -17,6 +17,8 @@ import BoardList from './components/BoardList';
 import BoardDetail from './components/BoardDetail';
 import BoardUpdate from './components/BoardUpdate';
 import Chart from './components/Chart';
+import ReplyList from './components/ReplyList';
+import WriteBoard from './components/WriteBoard';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
 
 function App() {
@@ -34,7 +36,7 @@ function App() {
             <Link to="/editProfile"><div className="nav-inner-right nav-inner-menu">내 정보</div> </Link>
             {sessionStorage.getItem("id") !== null && <Link to="/signout"><div className="nav-inner-right nav-inner-menu">로그아웃</div></Link> }
             {sessionStorage.getItem("id") === null && <Link to="/signin"><div className="nav-inner-right nav-inner-menu">로그인</div> </Link>}
-            {sessionStorage.getItem("id") !== null && <div className="nav-inner-right nav-inner-menu nav-inner-userNickName">{sessionStorage.getItem("id")}님 반갑습니다.</div>}
+            {/* {sessionStorage.getItem("id") !== null && <div className="nav-inner-right nav-inner-menu nav-inner-userNickName">{sessionStorage.getItem("userNickName")}님 반갑습니다.</div>} */}
           </div>
           <Link to="/"><div className="nav-inner-left nav-inner-title">Sapce Group</div></Link>
           {/* <div className="nav-inner-left"><input type="text" placeholder="검색어를 입력해주세요."/></div>
@@ -59,6 +61,8 @@ function App() {
           <Route path="/boardDetail" component={BoardDetail} />
           <Route path="/boardUpdate" component={BoardUpdate} />
           <Route path="/chart" component={Chart} />
+          <Route path="/replyList" component={ReplyList} />
+          <Route path="/writeBoard" component={WriteBoard} />
         </div>
       </BrowserRouter>
     </div>

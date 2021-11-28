@@ -4,6 +4,8 @@ import '../css/Community.css';
 import { DataGrid } from '@material-ui/data-grid';
 import moment from 'moment';
 import { useHistory } from "react-router-dom";
+import Button from '@material-ui/core/Button';
+import { Link } from 'react-router-dom';
 
 function Community() {
 
@@ -74,6 +76,7 @@ function Community() {
                     onRowClick={goBoardDetail}
                 />
             </div>
+            <Link to="/writeBoard"><Button variant="contained" className="buttonUpdate">작성하기</Button></Link>
         </div>
     );
 }

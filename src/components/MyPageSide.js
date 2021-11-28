@@ -10,7 +10,7 @@ function MypageSide() {
             <Link to="/rentalList"><div className="left-menu-inner">대여내역</div></Link>
             <Link to="/uploadList"><div className="left-menu-inner">등록내역</div></Link>
             <Link to="/boardList"><div className="left-menu-inner">내가 쓴 글</div></Link>
-            <div className="left-menu-inner">내가 쓴 글</div>
+            <Link to="/replyList"><div className="left-menu-inner">내가 쓴 댓글</div></Link>
         </div>
     );
 }

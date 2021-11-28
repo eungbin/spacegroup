@@ -23,6 +23,7 @@ function SignIn() {
                 console.log("로그인 성공");
                 sessionStorage.setItem("id", id);
                 sessionStorage.setItem("userSeq", res.data.userSeq);
+                sessionStorage.setItem("userNickName", res.data.userNickName);
                 history.push("/");
                 history.go(0);
             } else {

@@ -17,6 +17,7 @@ body {
   font-size: 20px;
   padding-top: 20px;
   padding-bottom: 20px;
+  z-index: 99;
 }
 
 .nav-inner-right {

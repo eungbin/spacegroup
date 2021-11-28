@@ -142,7 +142,7 @@ function BoardDetail(props) {
                         <Grid item xs={1}>본문</Grid>
                         <Grid item xs={3}></Grid>
                         <Grid item xs={1}>{boardDetail[0].userNickName}</Grid>
-                        <Grid item xs={2}>{String(boardDetail[0].boardDate).substring(0, 10)}</Grid>
+                        <Grid item xs={2}>{String(moment(new Date(boardDetail[0].boardDate)).format("YYYY-MM-DD"))}</Grid>
                         <Grid item xs={2}></Grid>
 
                         <Grid item xs={3}></Grid>
@@ -184,7 +184,7 @@ function BoardDetail(props) {
                                         <Grid item xs={9} className="replyInner">{i.replyText}</Grid>
 
                                         <Grid item xs={3}></Grid>
-                                        <Grid item xs={2} className="replyDate">{String(i.replyDate).substring(0, 10)}</Grid>
+                                        <Grid item xs={2} className="replyDate">{String(moment(new Date(i.replyDate)).format("YYYY-MM-DD"))}</Grid>
                                         <Grid item xs={2} className="replyDelete">
                                             {parseInt(i.userSeq) === parseInt(sessionStorage.getItem("userSeq")) ? <div onClick={deleteReply} id={i.replySeq}>삭제하기</div> : <></>}
                                         </Grid>
