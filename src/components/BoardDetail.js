@@ -34,7 +34,6 @@ function BoardDetail(props) {
                     boardSeq: boardSeq,
                 }
             });
-            console.log(res);
             setBoardDetail(res.data);
         })();
 
@@ -44,7 +43,6 @@ function BoardDetail(props) {
                     boardSeq: boardSeq,
                 }
             });
-            console.log(res);
             setReplyList(res.data);
         })();
     }, []);
@@ -68,7 +66,6 @@ function BoardDetail(props) {
                         boardSeq: boardSeq,
                     }
                 });
-                console.log(res);
             })();
     
             history.push({
@@ -95,7 +92,6 @@ function BoardDetail(props) {
                             boardSeq: boardSeq,
                         }
                     });
-                    console.log(res);
                     setReplyList(res.data);
                 })();
             })();
@@ -120,7 +116,6 @@ function BoardDetail(props) {
                             boardSeq: boardSeq,
                         }
                     });
-                    console.log(res);
                     setReplyList(res.data);
                 })();
             })();

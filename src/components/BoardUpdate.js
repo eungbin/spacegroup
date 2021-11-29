@@ -23,7 +23,6 @@ function BoardUpdate(props) {
     let boardTitle = props.location.state.boardTitle;
     let boardInner = props.location.state.boardInner;
     
-    console.log(boardTitle);
 
     let history = useHistory();
 
@@ -41,7 +40,6 @@ function BoardUpdate(props) {
                     boardInner: updatedInner,
                 }
             });
-            console.log(res);
         })()
 
         history.push({

@@ -43,13 +43,15 @@ const Calendar =(props)=>{
                           {days.format('D')}
                         </td>
                     );
-                }else if(days.format('MM') !== today.format('MM')){
+                }
+                else if(days.format('MM') !== today.format('MM')){
                   return(
-                      <td key={index} style={{backgroundColor:'gray'}}>
-                        {days.format('D')}
+                      <td key={index} onClick={onChangeDate}>
+                        {days.format('M/D')}
                       </td>
                   );
-                }else{
+                }
+                else{
                   return(
                       <td key={index} onClick={onChangeDate} >
                         {days.format('D')}
@@ -68,6 +70,7 @@ const Calendar =(props)=>{
         let days = e.target.innerHTML;
         if(days.length === 1) {days = "0" + days;}
         setDate(today.format("YYYYMM") + days);
+        props.setDate(today.format("YYYYMM") + days)
         document.querySelectorAll('td').forEach((elem, index) => {
           if(elem.className === "clicked") {
             elem.className = "notClicked";

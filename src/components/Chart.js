@@ -17,8 +17,9 @@ function Chart() {
             let listData = [];
             let listData_2 = [];
 
+
             res.data.map(i => {
-                listData.push(i.spaceAddressSummary);
+                listData.push(i.locationName);
             })
 
             const result = listData.reduce((accu, curr) => { 
@@ -28,7 +29,6 @@ function Chart() {
 
             listData_2.push(Object.keys(result))
             listData_2.push(Object.values(result))
-            console.log(listData_2);
 
             setData(listData_2);
         })();

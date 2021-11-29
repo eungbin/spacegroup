@@ -8,6 +8,7 @@ import { BrowserRouter, Route, Link } from 'react-router-dom';
 // import { MemoizedCalendar } from './Calendar';
 import Calendar from './Calendar';
 import Count from './Count';
+import moment from 'moment';
 
 function SpaceDetail(props) {
     let spaceSeq = props.location.state.spaceSeq;
@@ -15,6 +16,7 @@ function SpaceDetail(props) {
     const [totalPay, setTotalPay] = useState(0);
     const [clickList, setClickList] = useState([]);
     const [personCount, setPersonCount] = useState(1);
+    const [date, setDate] = useState(moment().format('YYYYMMDD'));
 
     useEffect(() => {
         (async () => {
@@ -52,8 +54,8 @@ function SpaceDetail(props) {
                     <p className="buySpaceName">{space.spaceName}</p>
                     <div>{space.payPerHour}원/시간 최대 {space.spaceLimitPerson}명</div>
                     <h3>날짜 선택</h3>
-                    <Calendar spaceSeq={space.spaceSeq} clickList={clickList} setClickList={setClickList} />
-                    <Count clickList={clickList} payPerHour={space.payPerHour} spaceLimitPerson={space.spaceLimitPerson} />
+                    <Calendar spaceSeq={space.spaceSeq} clickList={clickList} setClickList={setClickList} setDate={setDate} />
+                    <Count clickList={clickList} payPerHour={space.payPerHour} spaceLimitPerson={space.spaceLimitPerson} date={date} spaceSeq={props.location.state.spaceSeq} spaceAddrSummary={space.spaceAddressSummary}/>
                 </div>
             </>
             }

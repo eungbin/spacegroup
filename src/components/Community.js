@@ -19,7 +19,6 @@ function Community() {
                     
                 }
             });
-            console.log(res);
             setBoardList(res.data)
         })()
     }, []);

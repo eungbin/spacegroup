@@ -1,12 +1,15 @@
-import {React} from 'react';
+import {React, useState} from 'react';
 import '../css/Signin.css';
 import Button from '@material-ui/core/Button';
 import axios from 'axios';
 import { useHistory } from "react-router-dom";
+import { CSSTransition } from "react-transition-group";
+import SignInFail from './SignInFail';
 
 function SignIn() {
 
     const history = useHistory();
+    const [showFail, setShowFail] = useState(false);
 
     const onLoginSubmit = async() => {
         let id = document.getElementById("input-id").value;
@@ -35,6 +38,20 @@ function SignIn() {
 
     return(
         <div>
+            <CSSTransition
+                in={showFail}
+                timeout={300}
+                classNames={{
+                    enter: styles.enter,
+                    enterActive: styles.enterActive,
+                    exit: styles.exit,
+                    exitActive: styles.exitActive
+                }}
+                unmountOnExit >
+                <div>
+                    <SignInFail />
+                </div>
+            </CSSTransition>
             <h1 className="header-signin">로그인</h1>
             <div className="container-main">
                 <div className="container-signin">

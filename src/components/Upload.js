@@ -2,9 +2,12 @@ import React, { useState, useEffect } from 'react';
 import "../css/Upload.css";
 import Button from '@material-ui/core/Button';
 import axios from 'axios';
+import { useHistory } from "react-router-dom";
 
 function Upload() {
     let userSeq = sessionStorage.getItem("userSeq");
+
+    let history = useHistory();
 
     const onUploadSubmit = async() => {
         let spaceName = document.getElementById("input-spaceName").value;
@@ -53,7 +56,14 @@ function Upload() {
             }
         });
 
-        console.log(res);
+        if(res.data[0].spaceSeq !== undefined) {
+            history.push({
+                pathname: "/spaceDetail",
+                state: {
+                    spaceSeq: res.data[0].spaceSeq,
+                }
+            })
+        }
     }
 
     return(
@@ -65,14 +75,14 @@ function Upload() {
                         <input className="input-upload" id="input-spaceName" type="text" name="spaceName" placeholder="공간명"></input>
                         <select className="spaceType" name="spaceType" id="spaceType">
                             <option value="">공간유형을 선택해주세요.</option>
-                            <option value="party">파티룸</option><option value="practice">연습실</option><option value="vocal">보컬연습실</option>
-                            <option value="study">스터디룸</option><option value="photo">촬영스튜디오</option><option value="meeting">회의실</option>
-                            <option value="dog">세미나실</option><option value="dog">악기연습실</option><option value="dog">호리존</option>
-                            <option value="dog">라이브방송</option><option value="dog">강의실</option><option value="dog">녹음실</option>
-                            <option value="dog">공유주방</option><option value="dog">카페</option><option value="dog">스몰웨딩</option>
-                            <option value="dog">갤러리</option><option value="dog">운동시설</option><option value="dog">실외촬영</option>
-                            <option value="dog">컨퍼런스</option><option value="dog">공연장</option><option value="dog">독립오피스</option>
-                            <option value="dog">코워킹오피스</option><option value="dog">비상주서비스</option><option value="dog">원데이오피스</option>
+                            <option value="파티룸">파티룸</option><option value="연습실">연습실</option><option value="보컬연습실">보컬연습실</option>
+                            <option value="스터디룸">스터디룸</option><option value="촬영스튜디오">촬영스튜디오</option><option value="회의실">회의실</option>
+                            <option value="세미나실">세미나실</option><option value="악기연습실">악기연습실</option><option value="호리존">호리존</option>
+                            <option value="라이브방송">라이브방송</option><option value="강의실">강의실</option><option value="녹음실">녹음실</option>
+                            <option value="공유주방">공유주방</option><option value="카페">카페</option><option value="스몰웨딩">스몰웨딩</option>
+                            <option value="갤러리">갤러리</option><option value="운동시설">운동시설</option><option value="실외촬영">실외촬영</option>
+                            <option value="컨퍼런스">컨퍼런스</option><option value="공연장">공연장</option><option value="독립오피스">독립오피스</option>
+                            <option value="코워킹오피스">코워킹오피스</option><option value="비상주서비스">비상주서비스</option><option value="원데이오피스">원데이오피스</option>
                         </select>
                         <select className="spaceType" id="spaceAddressSummary" name="spaceAddressSummary">
                             <option value="">지역을 선택해주세요.</option>
