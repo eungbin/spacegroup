@@ -3,8 +3,7 @@ import '../css/Signin.css';
 import Button from '@material-ui/core/Button';
 import axios from 'axios';
 import { useHistory } from "react-router-dom";
-import { CSSTransition } from "react-transition-group";
-import SignInFail from './SignInFail';
+// import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 function SignIn() {
 
@@ -30,6 +29,7 @@ function SignIn() {
                 history.push("/");
                 history.go(0);
             } else {
+                setShowFail(true);
                 console.log("아이디 혹은 비밀번호를 확인해 주세요.");
             }
         })
@@ -38,20 +38,6 @@ function SignIn() {
 
     return(
         <div>
-            <CSSTransition
-                in={showFail}
-                timeout={300}
-                classNames={{
-                    enter: styles.enter,
-                    enterActive: styles.enterActive,
-                    exit: styles.exit,
-                    exitActive: styles.exitActive
-                }}
-                unmountOnExit >
-                <div>
-                    <SignInFail />
-                </div>
-            </CSSTransition>
             <h1 className="header-signin">로그인</h1>
             <div className="container-main">
                 <div className="container-signin">

@@ -80,7 +80,7 @@ function Count(props) {
                 if(res.data) {
                     window.location.reload();
                 } else {
-                    alert("에약 실패");
+                    alert("예약 실패");
                 }
             } else if(clickList.length === 0) {
                 alert("시간을 선택해주세요.");
