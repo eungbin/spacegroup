@@ -8,22 +8,34 @@ import { BrowserRouter, Route, Link } from 'react-router-dom';
 
 function SpaceList(props) {
     let category = props.location.state.category;
+    let tag = props.location.state.tag;
     const [spaceList, setSpaceList] = useState();
 
     useEffect(() => {
-        (async () => {
-            const res = await axios.get('/api/getSpace', {
-                params: {
-                    category: category,
-                }
-            });
-            setSpaceList(res.data);
-        })()
+        if(category !== undefined) {
+            (async () => {
+                const res = await axios.get('/api/getSpace', {
+                    params: {
+                        category: category,
+                    }
+                });
+                setSpaceList(res.data);
+            })()
+        } else if(tag !== undefined) {
+            (async () => {
+                const res = await axios.get('/api/getSpace/tag', {
+                    params: {
+                        tag: tag,
+                    }
+                });
+                setSpaceList(res.data);
+            })()
+        }
     }, []);
 
     return(
         <div>
-            <h1>{category}(으)로 검색한 결과</h1>
+            {category !== undefined ? <h1>{category}(으)로 검색한 결과</h1> : <h1>{tag}(으)로 검색한 결과</h1>}
             <div className="listWrapper">
                 {spaceList === undefined ? <h1>Loading...</h1> : 
                 spaceList.map((i, index) => {

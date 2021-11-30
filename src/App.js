@@ -19,13 +19,26 @@ import BoardUpdate from './components/BoardUpdate';
 import Chart from './components/Chart';
 import ReplyList from './components/ReplyList';
 import WriteBoard from './components/WriteBoard';
-import { BrowserRouter, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Route, Link, useHistory } from 'react-router-dom';
 
 function App() {
 
+  let history = useHistory();
+
+  const onSearch = () => {
+    console.log(document.getElementById("searchTag").value);
+    history.push({
+      pathname: "/spaceList",
+      state: {
+          tag: document.getElementById("searchTag").value,
+      }
+    })
+    document.getElementById("searchTag").value = "";
+  }
+
   return (
     <div className="App">
-      <BrowserRouter>
+      {/* <BrowserRouter> */}
         <div className="black-nav">
           <div className="nav-outer-menu">
             {sessionStorage.getItem("id") === "admin" && <Link to="/manageuser"><div className="nav-inner-right nav-inner-menu">관리</div> </Link>}
@@ -39,8 +52,8 @@ function App() {
             {/* {sessionStorage.getItem("id") !== null && <div className="nav-inner-right nav-inner-menu nav-inner-userNickName">{sessionStorage.getItem("userNickName")}님 반갑습니다.</div>} */}
           </div>
           <Link to="/"><div className="nav-inner-left nav-inner-title">Sapce Group</div></Link>
-          {/* <div className="nav-inner-left"><input type="text" placeholder="검색어를 입력해주세요."/></div>
-          <Link to="/"><div className="nav-inner-left"><input type="button" /></div></Link> */}
+          <div className="nav-inner-left"><input type="text" id="searchTag" placeholder="검색어를 입력해주세요."/></div>
+          <div className="nav-inner-left"><input type="button" onClick={onSearch}/></div>
         </div>
 
         <div className="screen">
@@ -64,7 +77,7 @@ function App() {
           <Route path="/replyList" component={ReplyList} />
           <Route path="/writeBoard" component={WriteBoard} />
         </div>
-      </BrowserRouter>
+      {/* </BrowserRouter> */}
     </div>
   );
 }
