@@ -9,6 +9,16 @@ function Upload() {
 
     let history = useHistory();
 
+    useEffect(() => {
+        if(sessionStorage.getItem("id") === null || sessionStorage.getItem("id") === "") {
+            history.push("/signin");
+            alert("로그인 후 이용 가능합니다.")
+        } else if(sessionStorage.getItem("userType") === "guest") {
+            history.push("/");
+            alert("공간을 등록할 권한이 없습니다.")
+        }
+    }, []);
+
     const onUploadSubmit = async() => {
         let spaceName = document.getElementById("input-spaceName").value;
         let spaceType = document.getElementById("spaceType").value;

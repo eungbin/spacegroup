@@ -3,8 +3,17 @@ import axios from 'axios';
 import '../css/editProfile.css';
 import Button from '@material-ui/core/Button';
 import MyPageSide from './MyPageSide';
+import { useHistory } from 'react-router-dom';
 
-function editProfile() {
+function EditProfile() {
+
+    let history = useHistory();
+
+    useEffect(() => {
+        if(sessionStorage.getItem("id") === null || sessionStorage.getItem("id") === "") {
+            history.push("/signin");
+        }
+    }, []);
 
     const editNickName = async () => {
         let changeId = document.getElementById("input-id").value;
@@ -44,4 +53,4 @@ function editProfile() {
     );
 }
 
-export default editProfile;
+export default EditProfile;

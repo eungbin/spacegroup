@@ -22,10 +22,10 @@ function SignIn() {
         })
         .then(res => {
             if(res.data.status) {
-                console.log("로그인 성공");
                 sessionStorage.setItem("id", id);
                 sessionStorage.setItem("userSeq", res.data.userSeq);
                 sessionStorage.setItem("userNickName", res.data.userNickName);
+                sessionStorage.setItem("userType", res.data.userType);
                 history.push("/");
                 history.go(0);
             } else {
