@@ -7,9 +7,14 @@ import { Carousel } from 'react-responsive-carousel';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
 
 function SpaceList(props) {
-    let category = props.location.state.category;
-    let tag = props.location.state.tag;
+    // let category = props.location.state.category;
+    // let tag = props.location.state.tag;
     const [spaceList, setSpaceList] = useState();
+    const [category, setCategory] = useState(props.location.state.category);
+    const [tag, setTag] = useState(props.location.state.tag);
+
+    console.log(props);
+    console.log(spaceList);
 
     useEffect(() => {
         if(category !== undefined) {
@@ -29,9 +34,10 @@ function SpaceList(props) {
                     }
                 });
                 setSpaceList(res.data);
+                console.log("TEST");
             })()
         }
-    }, []);
+    }, [props.location.state.tag]);
 
     return(
         <div>
