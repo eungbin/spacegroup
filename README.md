@@ -1,6 +1,6 @@
 # ReactJS - Node.js
 
-SpaceGroup
+Space Group
 
 # Getting Started with Create React App
 
